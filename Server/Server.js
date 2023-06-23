@@ -4,12 +4,16 @@ const app = express();
 const bodyParser = require('body-parser');
 
 // PORT
-const PORT = 500;
+const PORT = 5000;
 
 // Use Body parser with Express
 app.use(bodyParser.urlencoded({extended: true}));
+// Find the Index.html in Public and Connect it w/ Express
+app.use(express.static('Server/public'));
 
 
+// Routes
+// app.use('/todo', )
 // Listening on PORT 5000
 app.listen(PORT, () => {
   console.log('Listening on PORT', PORT);

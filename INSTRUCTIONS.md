@@ -33,10 +33,10 @@ Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
 We would recommend you spend some time thinking about how to approach this problem. Think through all the logic that will be needed prior to writing any code. Take your time, relax, remember that impostor syndrome is real, and that you are capable of knocking this out of the park!
 
 ### How to Approach
-[ ] - Set up the Files and Folders
-[ ] - Add the HTML tags, Forms, and submit button
-[ ] - Set up the Server.js Add the listener, import body parser, express, and app
-[ ] - Set up the Database called `weekend-to-do-app` and connect it in Modal
+[X] - Set up the Files and Folders
+[X] - Add the HTML tags, Forms, and submit button
+[X] - Set up the Server.js Add the listener, import body parser, express, and app
+[X] - Set up the Database called `weekend-to-do-app` and connect it in Modal
 [ ] - Make a route called '/todo' 
 [ ] - When the Task is created, it should be stored inside of a database (SQL)
 [ ] - Work on the GET route and make function in Client to get the data from Database
