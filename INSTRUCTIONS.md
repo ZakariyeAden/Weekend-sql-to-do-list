@@ -38,16 +38,15 @@ We would recommend you spend some time thinking about how to approach this probl
 [X] - Set up the Server.js Add the listener, import body parser, express, and app
 [X] - Set up the Database called `weekend-to-do-app` and connect it in Modal
 [X] - Make a route called '/todo' 
-[ ] - When the Task is created, it should be stored inside of a database (SQL)
+[X] - When the Task is created, it should be stored inside of a database (SQL)
 [X] - Work on the GET route and make function in Client to get the data from Database
 [X] - Work on the POST route 
 [X] - Use the GET function in the response of POST 
-[ ] - Work on the PUT route 
 [ ] - Each Task should have an option to 'Complete' or 'Delete'.
 [ ] - When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.
 [ ] - Gonna need to use event delegation with CSS to check it off!
-[ ] - Work on the DELETE route 
-[ ] - Gonna need to use event delegation to delete the button and target the ID.
+[X] - Work on the DELETE route 
+[X] - Gonna need to use event delegation to delete the button and target the ID.
 [ ] - Work on the Stretch
 
 

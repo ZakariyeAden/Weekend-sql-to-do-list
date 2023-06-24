@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('Server/public'));
 
 // Routes
-app.use('/todo', todo)
+app.use('/task', todo)
 
 
 // Listening on PORT 5000

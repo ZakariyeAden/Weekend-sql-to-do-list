@@ -1,10 +1,10 @@
-CREATE TABLE "Todo" (
+CREATE TABLE "Todos" (
     "id" SERIAL PRIMARY KEY,
-    "todo" VARCHAR(80) NOT NULL
+    "task" VARCHAR(80) NOT NULL
 );
 
-INSERT INTO "Todo" 
-	("todo") 
+INSERT INTO "Todos" 
+	("task") 
 VALUES 
 	('Do your homework!'),
 	('Wash your clothes');

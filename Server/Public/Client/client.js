@@ -26,7 +26,7 @@ function addToDo(todoToADD){
  // Use the POST method, url, and get the Data thats passed through the parameter
   $.ajax({
     method:'POST',
-    url:'/todo',
+    url:'/task',
     data:todoToADD
     // Get the response
   }).then((response) => {
@@ -44,7 +44,7 @@ function refreshToDo(){
   // Use the GET method and url
   $.ajax({
     method: "GET",
-    url: "/todo"
+    url: "/task"
     // Get the response it sends
   }).then((response) => {
     // Render function
@@ -63,7 +63,7 @@ function deleteTodo(){
  // Use the DELETE method and url with the id to target
   $.ajax({
     method:'DELETE',
-    url:`/todo/${todoId}`
+    url:`/task/${todoId}`
     // Get the response
   }).then((response) => {
     console.log('Response in DeleteToDo',response);
@@ -78,14 +78,15 @@ function render(response){
     console.log("Todo:", ToDos);
     // Append to the toDoList of the response
     let todoRow = $(`
-    <ul>
-        <li>${ToDos.todo} <button class="delete-btn">Delete</button></li>
+        <ul>
+          <li><span>${ToDos.task}</span> <button class="delete-btn">Delete</button></li>
         </ul>
     `);
     // Set the row to the id
     todoRow.data("id", ToDos.id)
     // Log the ids
     console.log(todoRow.data("id"));
+    // Append
     $('#toDoList').append(todoRow)
   }
 }
