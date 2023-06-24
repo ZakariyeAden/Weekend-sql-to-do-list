@@ -23,4 +23,28 @@ router.get('/', (req,res) => {
 })
 
 
+
+// POST
+router.post('/', (req, res) => {
+  // GET the Data they submitted
+  let newTodo = req.body;
+  // INSERT it into the table
+  let queryToDoPost = `INSERT INTO "Todo" ("todo") VALUES ($1);`
+  // Parameterizations and use req.body
+  let toDoParams = [newTodo.todo];
+  // Query with pool and use queryTodo and Parameterizations 
+  pool.query(queryToDoPost, toDoParams)
+  // Get the response
+  .then((result) => {
+    // Get an OK response
+    res.sendStatus(201);
+    // Catch any Errors
+  }).catch((error) => {
+    console.log('ERRORS in POST:', error);
+    // Send an Error status
+    res.sendStatus(500);
+  })
+})
+
+
 module.exports = router

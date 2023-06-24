@@ -40,8 +40,8 @@ We would recommend you spend some time thinking about how to approach this probl
 [X] - Make a route called '/todo' 
 [ ] - When the Task is created, it should be stored inside of a database (SQL)
 [X] - Work on the GET route and make function in Client to get the data from Database
-[ ] - Work on the POST route 
-[ ] - Use the GET function in the response of POST 
+[X] - Work on the POST route 
+[X] - Use the GET function in the response of POST 
 [ ] - Work on the PUT route 
 [ ] - Each Task should have an option to 'Complete' or 'Delete'.
 [ ] - When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.
