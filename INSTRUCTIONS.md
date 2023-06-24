@@ -39,7 +39,7 @@ We would recommend you spend some time thinking about how to approach this probl
 [X] - Set up the Database called `weekend-to-do-app` and connect it in Modal
 [X] - Make a route called '/todo' 
 [ ] - When the Task is created, it should be stored inside of a database (SQL)
-[ ] - Work on the GET route and make function in Client to get the data from Database
+[X] - Work on the GET route and make function in Client to get the data from Database
 [ ] - Work on the POST route 
 [ ] - Use the GET function in the response of POST 
 [ ] - Work on the PUT route 

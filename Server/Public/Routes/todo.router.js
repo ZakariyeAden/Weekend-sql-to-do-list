@@ -7,7 +7,7 @@ const router = express.Router();
 // GET
 router.get('/', (req,res) => {
   // Get all of the data from table
-  let getQueryTodo = 'SELECT * FROM todo';
+  let getQueryTodo = 'SELECT * FROM "Todo";';
 
   pool.query(getQueryTodo)
   // Wanna get the results from the database

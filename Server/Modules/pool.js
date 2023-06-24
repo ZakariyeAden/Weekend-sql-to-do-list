@@ -3,7 +3,7 @@ const pg = require('pg');
 
 const pool = new pg.Pool({
   // The database to connect
-  database: 'weekend_to-do-app',
+  database: 'weekend-to-do-app',
   // Our Localhost
   host: 'localhost',
   // Port to listen in Pg
