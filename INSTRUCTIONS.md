@@ -37,7 +37,7 @@ We would recommend you spend some time thinking about how to approach this probl
 [X] - Add the HTML tags, Forms, and submit button
 [X] - Set up the Server.js Add the listener, import body parser, express, and app
 [X] - Set up the Database called `weekend-to-do-app` and connect it in Modal
-[ ] - Make a route called '/todo' 
+[X] - Make a route called '/todo' 
 [ ] - When the Task is created, it should be stored inside of a database (SQL)
 [ ] - Work on the GET route and make function in Client to get the data from Database
 [ ] - Work on the POST route 
