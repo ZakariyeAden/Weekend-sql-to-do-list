@@ -47,4 +47,24 @@ router.post('/', (req, res) => {
 })
 
 
+// DELETE
+router.delete('/:id', (req, res) => {
+  // Get the id clicked that was requested
+  let paramsId = req.params.id;
+  // Query to Delete
+  let queryToDoDelete = 'DELETE FROM "Todo" WHERE id = $1';
+ // Query with pool and use queryTodo and Parameterizations 
+  pool.query(queryToDoDelete, [paramsId])
+  // Get the Response
+  .then((response) => {
+    // Send Log
+    console.log('DELETE todo:');
+    // Get an OK status -- See in Postman
+    res.sendStatus(200);
+    // Catch any Errors
+  }).catch((error) => {
+    console.log(`DELETE ${queryToDoDelete}`, error);
+  })
+})
+
 module.exports = router

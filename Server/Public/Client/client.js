@@ -39,8 +39,6 @@ function addToDo(todoToADD){
 }
 // We want to refresh the todo and GET the todo from db
 function refreshToDo(){
-  // Prevent issue in the console and prevent default
- 
   console.log('Refresh todo');
   // Use the GET method and url
   $.ajax({
@@ -58,14 +56,18 @@ function refreshToDo(){
   })
 }
 
-
+function deleteTodo(){
+  
+}
 // Reuseable and to to make it refresh after Post!
 function render(response){
   for(let ToDos of response){
     console.log('Todo:', ToDos);
     // Append to the toDoList of the response
     $('#toDoList').append(`
-      <li>${ToDos.todo}</li>
+    <tr>
+    <td><li>${ToDos.todo} <button>Delete</button></li></td>
+     </tr>
     `)
   }
 }
