@@ -52,7 +52,7 @@ router.delete('/:id', (req, res) => {
   // Get the id clicked that was requested
   let paramsId = req.params.id;
   // Query to Delete
-  let queryToDoDelete = 'DELETE FROM "Todo" WHERE id = $1';
+  let queryToDoDelete = 'DELETE FROM "Todo" WHERE "id" = $1';
  // Query with pool and use queryTodo and Parameterizations 
   pool.query(queryToDoDelete, [paramsId])
   // Get the Response
@@ -64,6 +64,7 @@ router.delete('/:id', (req, res) => {
     // Catch any Errors
   }).catch((error) => {
     console.log(`DELETE ${queryToDoDelete}`, error);
+    res.sendStatus(500);
   })
 })
 

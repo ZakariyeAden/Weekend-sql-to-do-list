@@ -10,6 +10,7 @@ $(document).ready(function(){
 function addListeners(){
   console.log('Add listener:')
   $('#submit-btn').on('click', handleSubmit);
+  $('#toDoList').on('click','.delete-btn', deleteTodo);
 }
 function handleSubmit(){
   console.log('JQ');
@@ -17,7 +18,7 @@ function handleSubmit(){
   let todoObject = {
     todo: $('#to-do').val(),
   }
-  // Send the object the 
+  // Send the object to the function of POST
   addToDo(todoObject);
 }
 // POST
@@ -57,17 +58,34 @@ function refreshToDo(){
 }
 
 function deleteTodo(){
-  
-}
+  const todoId = $(this).parent().parent().data('id');
+  console.log('Todo Id:', todoId);
+ // Use the DELETE method and url with the id to target
+  $.ajax({
+    method:'DELETE',
+    url:`/todo/${todoId}`
+    // Get the response
+  }).then((response) => {
+    console.log('Response in DeleteToDo',response);
+    // Catch any Errors
+  }).catch((error) => {
+    console.log('ERROR in DELETE deleteTodo', error);
+  })
+} 
 // Reuseable and to to make it refresh after Post!
 function render(response){
   for(let ToDos of response){
-    console.log('Todo:', ToDos);
+    console.log("Todo:", ToDos);
     // Append to the toDoList of the response
-    $('#toDoList').append(`
-    <tr>
-    <td><li>${ToDos.todo} <button>Delete</button></li></td>
-     </tr>
-    `)
+    let todoRow = $(`
+    <ul>
+        <li>${ToDos.todo} <button class="delete-btn">Delete</button></li>
+        </ul>
+    `);
+    // Set the row to the id
+    todoRow.data("id", ToDos.id)
+    // Log the ids
+    console.log(todoRow.data("id"));
+    $('#toDoList').append(todoRow)
   }
 }
