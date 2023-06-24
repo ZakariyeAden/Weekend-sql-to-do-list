@@ -39,6 +39,7 @@ function addToDo(todoToADD){
   })
 }
 // We want to refresh the todo and GET the todo from db
+// GET
 function refreshToDo(){
   console.log('Refresh todo');
   // Use the GET method and url
@@ -56,8 +57,9 @@ function refreshToDo(){
     console.log('Errors in refresh:', error);
   })
 }
-
+// DELETE
 function deleteTodo(){
+  // Get the todo Id
   const todoId = $(this).parent().parent().data('id');
   console.log('Todo Id:', todoId);
  // Use the DELETE method and url with the id to target
@@ -72,6 +74,10 @@ function deleteTodo(){
     console.log('ERROR in DELETE deleteTodo', error);
   })
 } 
+
+function updateToDo(){
+  
+}
 // Reuseable and to to make it refresh after Post!
 function render(response){
   for(let ToDos of response){

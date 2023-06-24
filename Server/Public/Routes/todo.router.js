@@ -69,11 +69,11 @@ router.delete('/:id', (req, res) => {
 })
 
 // GET the Id and Update it to be checked off by Using CSS
-router.get('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   // Get the id clicked that was requested
   let paramsId = req.params.id;
   // Query to Get and Change -- Will use CSS and Event delegation to change it in Client
-  let queryToDoUpdate = 'SELECT * FROM "Todos" WHERE id = $1';
+  let queryToDoUpdate = 'UPDATE "Todos" SET "complete" = True WHERE "id" = $1';
  // Query with pool and use queryTodo and Parameterizations 
   pool.query(queryToDoUpdate, [paramsId])
   // Get the Response
