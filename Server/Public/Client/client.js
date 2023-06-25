@@ -94,11 +94,17 @@ function updateToDo(){
 function render(response){
   for(let ToDos of response){
     console.log("Todo:", ToDos);
-    // Append to the toDoList of the response
-      $('#toDoList').append(`  <tr data-id=${ToDos.id}>
-      <td><input type="checkbox">${ToDos.task}</td>
-      <td><button class="delete-btn">Delete</button></td>
-      <td><button class="complete">Complete</button></td>
-    </tr>`) 
+    // Change the Class once its True
+    if(ToDos.complete === 'TRUE'){
+      // It doesnt show in the Chrome dev tools of the classname 'completed' ?
+     let TodoText = $('.text').addClass("completed");
+     console.log(TodoText);
+    }
+     // Append to the toDoList of the response
+     $('#toDoList').append(`  <tr data-id=${ToDos.id}>
+     <td class="text"><input type="checkbox">${ToDos.task}</td>
+     <td><button class="delete-btn">Delete</button></td>
+     <td><button class="complete">Complete</button></td>
+     </tr>`) 
   }
 }
