@@ -32,6 +32,25 @@ Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
 
 We would recommend you spend some time thinking about how to approach this problem. Think through all the logic that will be needed prior to writing any code. Take your time, relax, remember that impostor syndrome is real, and that you are capable of knocking this out of the park!
 
+### How to Approach
+[X] - Set up the Files and Folders
+[X] - Add the HTML tags, Forms, and submit button
+[X] - Set up the Server.js Add the listener, import body parser, express, and app
+[X] - Set up the Database called `weekend-to-do-app` and connect it in Modal
+[X] - Make a route called '/todo' 
+[X] - When the Task is created, it should be stored inside of a database (SQL)
+[X] - Work on the GET route and make function in Client to get the data from Database
+[X] - Work on the POST route 
+[X] - Use the GET function in the response of POST 
+[X] - Each Task should have an option to 'Complete' or 'Delete'.
+[X] - Work on the PUT route 
+[ ] - When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.
+[ ] - Gonna need to use event delegation with CSS to check it off!
+[X] - Work on the DELETE route 
+[X] - Gonna need to use event delegation to delete the button and target the ID.
+[ ] - Work on the Stretch
+
+
 ### Create a Database
 
 Be sure to create a new database through Postico. Use the name `weekend-to-do-app`. You will need to use this name in your database connection configuration on your server.
