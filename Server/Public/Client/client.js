@@ -83,8 +83,8 @@ function updateToDo(){
   $(this).parent().parent().css('text-decoration', 'line-through');
   
   // Change the Class once its True
-  //  if(todoIdUpdate === 'TRUE'){
-  //   // It doesnt show in the Chrome dev tools of the classname 'completed' ?
+  //  if(ToDos.complete === 'TRUE'){
+  //  
   //  let TodoText = $('.text').addClass("completed");
   //  console.log(TodoText);
   // }
