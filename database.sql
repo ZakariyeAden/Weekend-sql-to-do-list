@@ -1,7 +1,7 @@
 CREATE TABLE "Todos" (
     "id" SERIAL PRIMARY KEY,
     "task" VARCHAR(80) NOT NULL,
-    "complete" BOOLEAN NOT NULL
+    "complete" BOOLEAN DEFAULT FALSE
 );
 
 INSERT INTO "Todos" 

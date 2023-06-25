@@ -11,6 +11,7 @@ function addListeners(){
   console.log('Add listener:')
   $('#submit-btn').on('click', handleSubmit);
   $('#toDoList').on('click','.delete-btn', deleteTodo);
+  $('#toDoList').on('click','.complete', updateToDo);
 }
 function handleSubmit(){
   console.log('JQ');
@@ -60,12 +61,12 @@ function refreshToDo(){
 // DELETE
 function deleteTodo(){
   // Get the todo Id
-  const todoId = $(this).parent().parent().data('id');
-  console.log('Todo Id:', todoId);
+  const todoIdDelete = $(this).parent().parent().data('id');
+  // console.log('Todo Id:', todoId);
  // Use the DELETE method and url with the id to target
   $.ajax({
     method:'DELETE',
-    url:`/task/${todoId}`
+    url:`/task/${todoIdDelete}`
     // Get the response
   }).then((response) => {
     console.log('Response in DeleteToDo',response);
@@ -76,23 +77,28 @@ function deleteTodo(){
 } 
 
 function updateToDo(){
-  
+  // Get the todo Id
+  const todoIdUpdate = $(this).parent().parent().data('id');
+  // console.log('Todo Id:', todoId);
+  $.ajax({
+    method:'PUT',
+    url:`/task/${todoIdUpdate}`
+  }).then((response) => {
+    console.log('Update the todo to complete!', response);
+    // addToDo();
+  }).catch((error) => {
+    console.log('ERROR in UPDATE updateTodo', error)
+  })
 }
 // Reuseable and to to make it refresh after Post!
 function render(response){
   for(let ToDos of response){
     console.log("Todo:", ToDos);
     // Append to the toDoList of the response
-    let todoRow = $(`
-        <ul>
-          <li><span>${ToDos.task}</span> <button class="delete-btn">Delete</button></li>
-        </ul>
-    `);
-    // Set the row to the id
-    todoRow.data("id", ToDos.id)
-    // Log the ids
-    console.log(todoRow.data("id"));
-    // Append
-    $('#toDoList').append(todoRow)
+      $('#toDoList').append(`  <tr data-id=${ToDos.id}>
+      <td><input type="checkbox">${ToDos.task}</td>
+      <td><button class="delete-btn">Delete</button></td>
+      <td><button class="complete">Complete</button></td>
+    </tr>`) 
   }
 }

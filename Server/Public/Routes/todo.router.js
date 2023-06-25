@@ -73,7 +73,8 @@ router.put('/:id', (req, res) => {
   // Get the id clicked that was requested
   let paramsId = req.params.id;
   // Query to Get and Change -- Will use CSS and Event delegation to change it in Client
-  let queryToDoUpdate = 'UPDATE "Todos" SET "complete" = True WHERE "id" = $1';
+  let queryToDoUpdate = `UPDATE "Todos" SET "complete" = 'TRUE' WHERE "id" = $1;`;
+  
  // Query with pool and use queryTodo and Parameterizations 
   pool.query(queryToDoUpdate, [paramsId])
   // Get the Response
