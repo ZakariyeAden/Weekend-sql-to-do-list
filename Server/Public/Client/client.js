@@ -79,7 +79,15 @@ function deleteTodo(){
 function updateToDo(){
   // Get the todo Id
   const todoIdUpdate = $(this).parent().parent().data('id');
-  // console.log('Todo Id:', todoId);
+  // Works but need if Else statements to remove and keep it once its true!
+  $(this).parent().parent().css('text-decoration', 'line-through');
+  
+  // Change the Class once its True
+  //  if(todoIdUpdate === 'TRUE'){
+  //   // It doesnt show in the Chrome dev tools of the classname 'completed' ?
+  //  let TodoText = $('.text').addClass("completed");
+  //  console.log(TodoText);
+  // }
   $.ajax({
     method:'PUT',
     url:`/task/${todoIdUpdate}`
@@ -94,12 +102,6 @@ function updateToDo(){
 function render(response){
   for(let ToDos of response){
     console.log("Todo:", ToDos);
-    // Change the Class once its True
-    if(ToDos.complete === 'TRUE'){
-      // It doesnt show in the Chrome dev tools of the classname 'completed' ?
-     let TodoText = $('.text').addClass("completed");
-     console.log(TodoText);
-    }
      // Append to the toDoList of the response
      $('#toDoList').append(`  <tr data-id=${ToDos.id}>
      <td class="text"><input type="checkbox">${ToDos.task}</td>
