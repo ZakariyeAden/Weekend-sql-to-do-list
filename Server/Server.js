@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const todo = require('./Public/Routes/todo.router')
 // PORT
-const PORT = 5000;
+const PORT = process.env.DATABASE_URL || 5000;
 
 // Use Body parser with Express
 app.use(bodyParser.urlencoded({extended: true}));
