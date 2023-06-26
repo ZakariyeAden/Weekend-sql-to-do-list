@@ -80,10 +80,7 @@ function updateToDo(){
   // Get the todo Id
   const todoIdUpdate = $(this).parent().parent().data('id');
   // Works but need if Else statements to remove and keep it once its true!
-  $(this).parent().parent().css('text-decoration', 'line-through');
-  
-  // Change the Class once its True
- 
+  $(this).parent().parent().css('text-decoration', 'line-through'); 
   $.ajax({
     method:'PUT',
     url:`/task/${todoIdUpdate}`
@@ -98,17 +95,17 @@ function updateToDo(){
 function render(response){
   for(let i = 0; i < response.length; i++){
     // console.log("Todo:", ToDos);
+    // if 'complete' is true and the text class
     if(response[i].complete == true){
-      $(this).parent().parent().css('text-decoration', 'line-through');
-    // Append to the toDoList of the response
+    // Append to the toDoList of the response and Show the delete button
     $('#toDoList').append(`  <tr data-id=${response[i].id}>
     <td class="text"><input type="checkbox">${response[i].task}</td>
     <td><button class="delete-btn">Delete</button></td>
     </tr>`) 
     }else {
+      // Else show the complete button
       $('#toDoList').append(`  <tr data-id=${response[i].id}>
-      <td class="text"><input type="checkbox">${response[i].task}</td>
-      <td><button class="delete-btn">Delete</button></td>
+      <td><input type="checkbox">${response[i].task}</td>
       <td><button class="complete">Complete</button></td>
       </tr>`) 
     }
