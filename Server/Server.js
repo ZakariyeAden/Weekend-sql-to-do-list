@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 // Use Body parser with Express
 app.use(bodyParser.urlencoded({extended: true}));
 // Find the Index.html in Public and Connect it w/ Express
-app.use(express.static('Server/public'));
+app.use(express.static('Server/Public'));
 
 // Routes
 app.use('/task', todo)

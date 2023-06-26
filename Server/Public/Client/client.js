@@ -33,9 +33,9 @@ const Modal = () => {
 function addListeners(){
   console.log('Add listener:')
   $('#submit-btn').on('click', handleSubmit);
-  $('.swal2-container.swal2-center.swal2-backdrop-show').on('click','.delete-todo', deleteTodo);
+  $('#toDoList').on('click','.delete-btn', deleteTodo);
   $('#toDoList').on('click','.complete', updateToDo);
-  $('#toDoList').on('click','.delete-btn', Modal);
+  // $('#toDoList').on('click','.delete-btn', Modal);
 }
 function handleSubmit(){
  
@@ -129,7 +129,7 @@ function render(response){
     // Append to the toDoList of the response and Show the delete button
     $('#toDoList').append(`  <tr data-id=${response[i].id} class="">
     <td class="text todo-text">${response[i].task}</td>
-    <td><button type="button" class="btn btn-danger delete-btn  ml-3 ">Delete</button></td>
+    <td><button type="button" class="btn btn-danger delete-btn ml-3 ">Delete</button></td>
     </tr>`) 
     }else {
       // Else show the complete button
