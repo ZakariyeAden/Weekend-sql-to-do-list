@@ -79,8 +79,6 @@ function deleteTodo(){
 function updateToDo(){
   // Get the todo Id
   const todoIdUpdate = $(this).parent().parent().data('id');
-  // Works but need if Else statements to remove and keep it once its true!
-  $(this).parent().parent().css('text-decoration', 'line-through'); 
   $.ajax({
     method:'PUT',
     url:`/task/${todoIdUpdate}`
