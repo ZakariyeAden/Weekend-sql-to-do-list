@@ -83,11 +83,7 @@ function updateToDo(){
   $(this).parent().parent().css('text-decoration', 'line-through');
   
   // Change the Class once its True
-  //  if(ToDos.complete === 'TRUE'){
-  //  
-  //  let TodoText = $('.text').addClass("completed");
-  //  console.log(TodoText);
-  // }
+ 
   $.ajax({
     method:'PUT',
     url:`/task/${todoIdUpdate}`
@@ -100,13 +96,21 @@ function updateToDo(){
 }
 // Reuseable and to to make it refresh after Post!
 function render(response){
-  for(let ToDos of response){
-    console.log("Todo:", ToDos);
-     // Append to the toDoList of the response
-     $('#toDoList').append(`  <tr data-id=${ToDos.id}>
-     <td class="text"><input type="checkbox">${ToDos.task}</td>
-     <td><button class="delete-btn">Delete</button></td>
-     <td><button class="complete">Complete</button></td>
-     </tr>`) 
+  for(let i = 0; i < response.length; i++){
+    // console.log("Todo:", ToDos);
+    if(response[i].complete == true){
+      $(this).parent().parent().css('text-decoration', 'line-through');
+    // Append to the toDoList of the response
+    $('#toDoList').append(`  <tr data-id=${response[i].id}>
+    <td class="text"><input type="checkbox">${response[i].task}</td>
+    <td><button class="delete-btn">Delete</button></td>
+    </tr>`) 
+    }else {
+      $('#toDoList').append(`  <tr data-id=${response[i].id}>
+      <td class="text"><input type="checkbox">${response[i].task}</td>
+      <td><button class="delete-btn">Delete</button></td>
+      <td><button class="complete">Complete</button></td>
+      </tr>`) 
+    }
   }
 }
