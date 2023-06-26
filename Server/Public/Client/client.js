@@ -7,13 +7,36 @@ $(document).ready(function(){
   addListeners();
   refreshToDo();
 });
+
+const Modal = () => {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    }
+  })
+}
+
 function addListeners(){
   console.log('Add listener:')
   $('#submit-btn').on('click', handleSubmit);
   $('#toDoList').on('click','.delete-btn', deleteTodo);
   $('#toDoList').on('click','.complete', updateToDo);
+  $('#toDoList').on('click','.delete-btn', Modal);
 }
 function handleSubmit(){
+ 
   console.log('JQ');
   // Object of the values
   let todoObject = {
@@ -22,8 +45,12 @@ function handleSubmit(){
   // Send the object to the function of POST
   addToDo(todoObject);
 }
+
+
 // POST
+
 function addToDo(todoToADD){
+ 
  // Use the POST method, url, and get the Data thats passed through the parameter
   $.ajax({
     method:'POST',
@@ -32,6 +59,7 @@ function addToDo(todoToADD){
     // Get the response
   }).then((response) => {
     console.log('AddToDo, POST:',response);
+  
     // Refresh the todo
     refreshToDo();
     // Catch any ERRORS
@@ -84,6 +112,7 @@ function updateToDo(){
     url:`/task/${todoIdUpdate}`
   }).then((response) => {
     console.log('Update the todo to complete!', response);
+    
     // addToDo();
   }).catch((error) => {
     console.log('ERROR in UPDATE updateTodo', error)
@@ -93,7 +122,7 @@ function updateToDo(){
 function render(response){
   for(let i = 0; i < response.length; i++){
     // console.log("Todo:", ToDos);
-    // if 'complete' is true and the text class
+    // if 'complete' is true 
     if(response[i].complete == true){
     // Append to the toDoList of the response and Show the delete button
     $('#toDoList').append(`  <tr data-id=${response[i].id} class="">
