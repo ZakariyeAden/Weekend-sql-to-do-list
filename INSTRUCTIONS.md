@@ -44,11 +44,11 @@ We would recommend you spend some time thinking about how to approach this probl
 [X] - Use the GET function in the response of POST 
 [X] - Each Task should have an option to 'Complete' or 'Delete'.
 [X] - Work on the PUT route 
-[ ] - When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.
-[ ] - Gonna need to use event delegation with CSS to check it off!
+[X] - When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.
+[X] - Gonna need to use event delegation with CSS to check it off!
 [X] - Work on the DELETE route 
 [X] - Gonna need to use event delegation to delete the button and target the ID.
-[ ] - Work on the Stretch
+[X] - Work on the Stretch
 
 
 ### Create a Database
@@ -65,7 +65,7 @@ For each of your strech goals, you will be practicing git branching. Please refe
 
 - `feature-styling-bootstrap` 
 
-    - [ ]  Add Bootstrap to the front end and style it up!
+    - [X]  Add Bootstrap to the front end and style it up!
       -  Buttons -- make the creation buttons and completion buttons green and the delete red.
       -  Inputs -- make your text inputs styled in the bootstrap way
       -  Responsive -- make your app responsive to different screen sizes -- check out the [Layout](https://getbootstrap.com/docs/4.1/layout/overview/) section

@@ -96,15 +96,15 @@ function render(response){
     // if 'complete' is true and the text class
     if(response[i].complete == true){
     // Append to the toDoList of the response and Show the delete button
-    $('#toDoList').append(`  <tr data-id=${response[i].id}>
-    <td class="text"><input type="checkbox">${response[i].task}</td>
-    <td><button class="delete-btn">Delete</button></td>
+    $('#toDoList').append(`  <tr data-id=${response[i].id} class="">
+    <td class="text todo-text">${response[i].task}</td>
+    <td><button type="button" class="btn btn-danger delete-btn ml-3">Delete</button></td>
     </tr>`) 
     }else {
       // Else show the complete button
-      $('#toDoList').append(`  <tr data-id=${response[i].id}>
-      <td><input type="checkbox">${response[i].task}</td>
-      <td><button class="complete">Complete</button></td>
+      $('#toDoList').append(`  <tr data-id=${response[i].id} class="">
+      <td class"todo-text">${response[i].task}</td>
+      <td><button type="button" class="btn btn-primary complete ml-3">Complete</button></td>
       </tr>`) 
     }
   }
