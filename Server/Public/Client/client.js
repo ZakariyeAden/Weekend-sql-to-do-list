@@ -6,6 +6,7 @@ console.log('In JS file');
 $(document).ready(function(){
   addListeners();
   refreshToDo();
+  $('#toDoList').on('click','.delete-btn', deleteTodo);
 });
 
 const Modal = () => {
@@ -33,8 +34,9 @@ const Modal = () => {
 function addListeners(){
   console.log('Add listener:')
   $('#submit-btn').on('click', handleSubmit);
-  $('#toDoList').on('click','.delete-btn', deleteTodo);
+  // $('#toDoList').on('click','.delete-btn', deleteTodo);
   $('#toDoList').on('click','.complete', updateToDo);
+  $('#toDoList').on('click','.complete', refreshToDo);
   // $('#toDoList').on('click','.delete-btn', Modal);
 }
 function handleSubmit(){
@@ -63,7 +65,7 @@ function addToDo(todoToADD){
     console.log('AddToDo, POST:',response);
   
     // Refresh the todo
-    refreshToDo();
+    refreshToDo(response);
     // Catch any ERRORS
   }).catch((error) => {
     console.log('ERRORS in addToDo POST:', error);
@@ -100,6 +102,7 @@ function deleteTodo(){
     // Get the response
   }).then((response) => {
     console.log('Response in DeleteToDo',response);
+   
     // Catch any Errors
   }).catch((error) => {
     console.log('ERROR in DELETE deleteTodo', error);
