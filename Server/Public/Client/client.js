@@ -4,9 +4,9 @@ console.log('In JS file');
 
 
 $(document).ready(function(){
-  addListeners();
+  $('#submit-btn').on('click', handleSubmit);
   refreshToDo();
-  $('#toDoList').on('click','.delete-btn', deleteTodo);
+  addListeners();
 });
 
 const Modal = () => {
@@ -33,14 +33,10 @@ const Modal = () => {
 }
 function addListeners(){
   console.log('Add listener:')
-  $('#submit-btn').on('click', handleSubmit);
-  // $('#toDoList').on('click','.delete-btn', deleteTodo);
   $('#toDoList').on('click','.complete', updateToDo);
-  $('#toDoList').on('click','.complete', refreshToDo);
-  // $('#toDoList').on('click','.delete-btn', Modal);
+  $('#toDoList').on('click','.delete-btn', deleteTodo);
 }
 function handleSubmit(){
- 
   console.log('JQ');
   // Object of the values
   let todoObject = {
@@ -52,9 +48,7 @@ function handleSubmit(){
 
 
 // POST
-
 function addToDo(todoToADD){
- 
  // Use the POST method, url, and get the Data thats passed through the parameter
   $.ajax({
     method:'POST',
@@ -63,16 +57,15 @@ function addToDo(todoToADD){
     // Get the response
   }).then((response) => {
     console.log('AddToDo, POST:',response);
-  
     // Refresh the todo
-    refreshToDo(response);
+    refreshToDo();
     // Catch any ERRORS
   }).catch((error) => {
     console.log('ERRORS in addToDo POST:', error);
   })
 }
-// We want to refresh the todo and GET the todo from db
 // GET
+// We want to refresh the todo and GET the todo from db
 function refreshToDo(){
   console.log('Refresh todo');
   // Use the GET method and url
@@ -94,15 +87,15 @@ function refreshToDo(){
 function deleteTodo(){
   // Get the todo Id
   const todoIdDelete = $(this).parent().parent().data('id');
-  // console.log('Todo Id:', todoId);
- // Use the DELETE method and url with the id to target
+  // Use the DELETE method and url with the id to target
   $.ajax({
     method:'DELETE',
     url:`/task/${todoIdDelete}`
     // Get the response
   }).then((response) => {
     console.log('Response in DeleteToDo',response);
-   
+    // Refresh
+    refreshToDo();
     // Catch any Errors
   }).catch((error) => {
     console.log('ERROR in DELETE deleteTodo', error);
@@ -117,16 +110,16 @@ function updateToDo(){
     url:`/task/${todoIdUpdate}`
   }).then((response) => {
     console.log('Update the todo to complete!', response);
-    
-    // addToDo();
+    // Refresh
+    refreshToDo();
   }).catch((error) => {
     console.log('ERROR in UPDATE updateTodo', error)
   })
 }
 // Reuseable and to to make it refresh after Post!
 function render(response){
+  $("#toDoList").empty();
   for(let i = 0; i < response.length; i++){
-    // console.log("Todo:", ToDos);
     // if 'complete' is true 
     if(response[i].complete == true){
     // Append to the toDoList of the response and Show the delete button

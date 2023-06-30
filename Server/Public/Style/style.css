@@ -1,5 +1,6 @@
 .text{
   text-decoration: line-through;
+  color: #67434F;
 }
 #toDoList{
     display: flex;
@@ -9,70 +10,26 @@
     /* padding: 0 30rem; */
     gap: 1rem;
 }
-
+.text-center, td{
+  color: #0f9177;
+}
+.todo-text{
+  font-size: 3rem;
+}
 td{
-  color: #000;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 form{
   display: flex;
   justify-content: center;
   margin: 4rem;
 }
-h1{
-  text-transform: uppercase;
-}
 body {
-  --s: 100px; /* control the size */
-  --c1: #C3CCAF;
-  --c2: #67434F;
+  --s: 120px; /* control the size*/
   
-  --_s: calc(2*var(--s)) calc(2*var(--s));
-  --_g: var(--_s) conic-gradient(at 40% 40%,#0000 75%,var(--c1) 0);
-  --_p: var(--_s) conic-gradient(at 20% 20%,#0000 75%,var(--c2) 0);
+  --_g: radial-gradient(#0000 70%,#1a2030 71%);
   background:
-    calc( .9*var(--s)) calc( .9*var(--s))/var(--_p),
-    calc(-.1*var(--s)) calc(-.1*var(--s))/var(--_p),
-    calc( .7*var(--s)) calc( .7*var(--s))/var(--_g),
-    calc(-.3*var(--s)) calc(-.3*var(--s))/var(--_g),
-    conic-gradient(from 90deg at 20% 20%,var(--c2) 25%,var(--c1) 0) 
-     0 0/var(--s) var(--s);
-  animation: m 3s infinite;
-}
-@keyframes m {
-  0% {
-   background-position: 
-    calc( .9*var(--s)) calc( .9*var(--s)),
-    calc(-.1*var(--s)) calc(-.1*var(--s)),
-    calc( .7*var(--s)) calc( .7*var(--s)),
-    calc(-.3*var(--s)) calc(-.3*var(--s)),0 0
-  }
-  25% {
-   background-position: 
-    calc(1.9*var(--s)) calc( .9*var(--s)),
-    calc(-1.1*var(--s)) calc(-.1*var(--s)),
-    calc(1.7*var(--s)) calc( .7*var(--s)),
-    calc(-1.3*var(--s)) calc(-.3*var(--s)),0 0
-  }
-  50% {
-   background-position: 
-    calc(1.9*var(--s)) calc(-.1*var(--s)),
-    calc(-1.1*var(--s)) calc( .9*var(--s)),
-    calc(1.7*var(--s)) calc(-.3*var(--s)),
-    calc(-1.3*var(--s)) calc( .7*var(--s)),0 0
-  }
-  75% {
-   background-position: 
-    calc(2.9*var(--s)) calc(-.1*var(--s)),
-    calc(-2.1*var(--s)) calc( .9*var(--s)),
-    calc(2.7*var(--s)) calc(-.3*var(--s)),
-    calc(-2.3*var(--s)) calc( .7*var(--s)),0 0
-  }
-  100% {
-   background-position: 
-    calc(2.9*var(--s)) calc(-1.1*var(--s)),
-    calc(-2.1*var(--s)) calc(1.9*var(--s)),
-    calc(2.7*var(--s)) calc(-1.3*var(--s)),
-    calc(-2.3*var(--s)) calc(1.7*var(--s)),0 0
-  }
+    var(--_g),var(--_g) calc(var(--s)/2) calc(var(--s)/2),
+    conic-gradient(#0f9177 25%,#fdebad 0 50%,#d34434 0 75%,#b5d999 0);
+  background-size: var(--s) var(--s); 
 }
